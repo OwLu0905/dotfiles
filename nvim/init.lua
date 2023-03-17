@@ -68,9 +68,6 @@ require('packer').startup(function(use)
     })}
 
   use {"akinsho/toggleterm.nvim"}
-  -- use {"akinsho/toggleterm.nvim",
-  --     require("toggleterm").setup({})
-  -- }
 
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -429,6 +426,13 @@ require('lspconfig').lua_ls.setup {
       telemetry = { enable = false },
     },
   },
+}
+
+-- emmet ?
+require('lspconfig').emmet_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact' }
 }
 
 -- nvim-cmp setup
