@@ -46,3 +46,11 @@ vim.keymap.set("n", "<leader>vl", vim.cmd ['vsplit'], {desc = 'Vertical split'})
 
 
 -- TODO : add tab relative work
+-- NOTE : move between buffers
+
+vim.keymap.set("n", "<leader>tj", vim.cmd ['bnext'], { desc = "[T]o next[j]"})
+vim.keymap.set("n", "<leader>tk", vim.cmd ['bprev'], { desc = "[T]o prev[k]"})
+-- vim.keymap.set("n", "<leader>tl", vim.cmd ['blast'], { desc = "[T]o prev[k]"})
+vim.keymap.set("n", "<leader>tl", ":blast<enter>", { noremap = false, desc = "[T]o last[L]"})
+vim.keymap.set("n", "<leader>th", ":bfirst<enter>", { noremap = false, desc = "[T]o first[H]"})
+

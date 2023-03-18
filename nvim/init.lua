@@ -163,11 +163,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'onedark',
     component_separators = '|',
     section_separators = '',
   },
+  sections = {
+    lualine_a = {'buffers'}
+  }
 }
 
 -- Enable Comment.nvim
@@ -226,6 +229,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>ske', require('telescope.builtin').keymaps, { desc = '[S]earch [K][E]ymaps' })
 -- vim.keymap.set('n', '<leader>sy', require('telescope.builtin').search_history, { desc = '[S]earch histor[Y]' })
 
 
