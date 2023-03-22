@@ -69,6 +69,14 @@ require('packer').startup(function(use)
 
   use {"akinsho/toggleterm.nvim"}
 
+  -- try nvim_tree 
+  use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional
+  },
+}
+
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
     plugins(use)
@@ -322,7 +330,8 @@ require('nvim-treesitter.configs').setup {
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen_float"})
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
@@ -503,5 +512,29 @@ cmp.setup {
   },
 }
 
+-- nvim_tree 
+-- require("nvim-tree").setup()
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+local api = require('nvim-tree.api')
+ local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+-- NOTE nvim_tree keymaps
+vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<enter>", {desc = "NvimtreeToggl[E]"})
+vim.keymap.set('n', '<leader>fe', ":NvimTreeFindFileToggle<enter>", {desc = "NvimtreeFind[F]ileToggl[E]"})
+vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
+vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
+vim.keymap.set('n', '<C-v>l', api.node.open.vertical, opts('Open: Vertical Split'))
+vim.keymap.set('n', '<C-s>l', api.node.open.horizontal, opts('Open: Vertical Split'))
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

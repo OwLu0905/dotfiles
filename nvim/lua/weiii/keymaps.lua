@@ -54,3 +54,10 @@ vim.keymap.set("n", "<leader>tk", vim.cmd ['bprev'], { desc = "[T]o prev[k]"})
 vim.keymap.set("n", "<leader>tl", ":blast<enter>", { noremap = false, desc = "[T]o last[L]"})
 vim.keymap.set("n", "<leader>th", ":bfirst<enter>", { noremap = false, desc = "[T]o first[H]"})
 
+-- NOTE : nvim_tree (https://github.com/nvim-tree/nvim-tree.lua)
+-- -- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- -- set termguicolors to enable highlight groups
+-- vim.opt.termguicolors = true
