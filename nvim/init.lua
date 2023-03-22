@@ -439,6 +439,27 @@ require('lspconfig').emmet_ls.setup {
   filetypes = {'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact' }
 }
 
+-- tailwindcss configure ?
+require('lspconfig').tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    tailwindCSS = {
+      classAttributes = { "class", "className", "classList", "ngClass" },
+      -- lint = {
+      --   cssConflict = "warning",
+      --   invalidApply = "error",
+      --   invalidConfigPath = "error",
+      --   invalidScreen = "error",
+      --   invalidTailwindDirective = "error",
+      --   invalidVariant = "error",
+      --   recommendedVariantOrder = "warning"
+      -- },
+      validate = true
+    }
+  }
+}
+
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
