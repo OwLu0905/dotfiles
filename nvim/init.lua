@@ -24,6 +24,8 @@ require('packer').startup(function(use)
     },
   }
 
+  use "jose-elias-alvarez/null-ls.nvim"
+
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
@@ -147,6 +149,11 @@ vim.o.completeopt = 'menuone,noselect'
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- NOTE : set spacing 
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -330,7 +337,7 @@ require('nvim-treesitter.configs').setup {
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen_float"})
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
@@ -445,7 +452,7 @@ require('lspconfig').lua_ls.setup {
 require('lspconfig').emmet_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact' }
+  filetypes = {'html','css','ejs','pug','handlebars','typescript','typescriptreact','javascriptreact' }
 }
 
 -- tailwindcss configure ?
@@ -512,6 +519,21 @@ cmp.setup {
   },
 }
 
+-- null-ls 
+-- NOTE
+local null_ls = require("null-ls")
+
+-- register any number of sources simultaneously
+local null_sources = {
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.code_actions.gitsigns,
+}
+
+null_ls.setup({ sources = null_sources })
+
+-- format shortcut
+vim.cmd [[ command! Format execute 'lua vim.lsp.bug.format()' ]] 
+
 -- nvim_tree 
 -- require("nvim-tree").setup()
 require("nvim-tree").setup({
@@ -532,8 +554,8 @@ local api = require('nvim-tree.api')
 -- NOTE nvim_tree keymaps
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<enter>", {desc = "NvimtreeToggl[E]"})
 vim.keymap.set('n', '<leader>fe', ":NvimTreeFindFileToggle<enter>", {desc = "NvimtreeFind[F]ileToggl[E]"})
-vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
-vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
+-- vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
+-- vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
 vim.keymap.set('n', '<C-v>l', api.node.open.vertical, opts('Open: Vertical Split'))
 vim.keymap.set('n', '<C-s>l', api.node.open.horizontal, opts('Open: Vertical Split'))
 -- The line beneath this is called `modeline`. See `:help modeline`
