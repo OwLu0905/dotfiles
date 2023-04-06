@@ -61,3 +61,15 @@ vim.g.loaded_netrwPlugin = 1
 
 -- -- set termguicolors to enable highlight groups
 -- vim.opt.termguicolors = true
+
+-- NOTE Format 
+vim.keymap.set("n", "<leader>fw", function ()
+	vim.lsp.buf.format()
+	for _, client in ipairs(vim.lsp.get_active_clients()) do
+		print(client.name)
+	end
+end
+)
+
+-- zf za fold line
+vim.api.nvim_set_keymap('n', '<leader>-', ':normal! V%<CR>:fold<CR>', {noremap = true, silent = true})
