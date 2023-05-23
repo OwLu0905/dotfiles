@@ -1,10 +1,10 @@
 -- Install packer
-  
+
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   is_bootstrap = true
-  vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
   vim.cmd [[packadd packer.nvim]]
 end
 
@@ -50,10 +50,12 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use "EdenEast/nightfox.nvim"
+
+  use 'nvim-lualine/lualine.nvim'           -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
+  use 'tpope/vim-sleuth'                    -- Detect tabstop and shiftwidth automatically
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -66,18 +68,18 @@ require('packer').startup(function(use)
   use {
     "windwp/nvim-autopairs",
     require('nvim-autopairs').setup({
-      disable_filetype = { "TelescopePrompt" , "vim" },
-    })}
+      disable_filetype = { "TelescopePrompt", "vim" },
+    }) }
 
-  use {"akinsho/toggleterm.nvim"}
+  use { "akinsho/toggleterm.nvim" }
 
-  -- try nvim_tree 
+  -- try nvim_tree
   use {
-  'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons', -- optional
-  },
-}
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
 
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -139,6 +141,7 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 vim.o.termguicolors = true
 vim.cmd [[colorscheme onedark]]
+-- vim.cmd [[colorscheme duskfox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -150,7 +153,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- NOTE : set spacing 
+-- NOTE : set spacing
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -179,12 +182,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'duskfox',
     component_separators = '|',
     section_separators = '',
   },
   sections = {
-    lualine_a = {'buffers'}
+    lualine_a = { 'buffers' }
   }
 }
 
@@ -221,7 +224,7 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
-    file_ignore_patterns = {"node%_modules/.*"},
+    file_ignore_patterns = { "node%_modules/.*" },
   },
 }
 
@@ -338,7 +341,7 @@ require('nvim-treesitter.configs').setup {
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen_float"})
+vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, { desc = "[D]iagnostic [O]pen_float" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
@@ -396,7 +399,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls'}
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -452,7 +455,7 @@ require('lspconfig').lua_ls.setup {
 require('lspconfig').emmet_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {'html','css','ejs','pug','handlebars','typescript','typescriptreact','javascriptreact' }
+  filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact' }
 }
 
 -- tailwindcss configure ?
@@ -519,24 +522,27 @@ cmp.setup {
   },
 }
 
--- null-ls 
+-- null-ls
 -- NOTE
 local null_ls = require("null-ls")
 
 -- register any number of sources simultaneously
 local null_sources = {
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.code_actions.gitsigns,
+  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.code_actions.gitsigns,
 }
 
 null_ls.setup({ sources = null_sources })
 
 -- format shortcut
-vim.cmd [[ command! Format execute 'lua vim.lsp.bug.format()' ]] 
+vim.cmd [[ command! Format execute 'lua vim.lsp.bug.format()' ]]
 
--- nvim_tree 
+-- nvim_tree
 -- require("nvim-tree").setup()
 require("nvim-tree").setup({
+  view = {
+    side = 'right'
+  },
   sort_by = "case_sensitive",
   renderer = {
     group_empty = true,
@@ -544,16 +550,32 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  -- git = {
+  --   enable = true,
+  --   ignore = false,
+  --   show_on_dirs = true,
+  --   show_on_open_dirs = true,
+  --   timeout = 400,
+  -- },
 })
 
 local api = require('nvim-tree.api')
- local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-  end
+local function opts(desc)
+  return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+end
 
 -- NOTE nvim_tree keymaps
-vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<enter>", {desc = "NvimtreeToggl[E]"})
-vim.keymap.set('n', '<leader>fe', ":NvimTreeFindFileToggle<enter>", {desc = "NvimtreeFind[F]ileToggl[E]"})
+vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<enter>", { desc = "NvimtreeToggl[E]" })
+vim.keymap.set('n', '<leader>fe', ":NvimTreeFindFileToggle<enter>", { desc = "NvimtreeFind[F]ileToggl[E]" })
 -- vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
 -- vim.keymap.set('n', 'C', api.tree.change_root_to_node, opts('CD'))
 vim.keymap.set('n', '<C-v>l', api.node.open.vertical, opts('Open: Vertical Split'))
