@@ -140,8 +140,9 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+-- vim.cmd [[colorscheme onedark]]
 -- vim.cmd [[colorscheme duskfox]]
+vim.cmd [[colorscheme nightfox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -455,7 +456,7 @@ require('lspconfig').lua_ls.setup {
 require('lspconfig').emmet_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact' }
+  filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
 }
 
 -- tailwindcss configure ?
