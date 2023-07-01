@@ -27,6 +27,7 @@ dashboard.section.header.val = {
 "⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜",
 }
 
+
 -- Set menu
 dashboard.section.buttons.val = {
     dashboard.button( "a", "  > New file" , ":ene <BAR> startinsert <CR>"),
