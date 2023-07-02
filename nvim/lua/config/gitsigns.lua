@@ -19,13 +19,14 @@ vim.keymap.set('v', '<leader>ghr', function() gs.reset_hunk { vim.fn.line('.'), 
   { desc = "reset_hunk" })
 vim.keymap.set('n', '<leader>ghS', gs.stage_buffer, { desc = "stage_buffer" })
 
--- NOTE : view import 
+-- NOTE : view  
 vim.keymap.set("n", "<leader>ghp", gs.preview_hunk, { desc = "[P]review Hunk" })
 
 vim.keymap.set('n', '<leader>ghb', function() gs.blame_line { full = true } end, { desc = "blame_line" })
 vim.keymap.set('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = "toggle_current_line_blame" })
 
-vim.keymap.set("n", "<leader>ghd", gs.diffthis)
+-- NOTE : view diff
+vim.keymap.set("n", "<leader>ghd", gs.diffthis, { desc = "Vertical Diff" })
 vim.keymap.set("n", "<leader>ghD", function() gs.diffthis("~") end)
 
 -- 🧐
