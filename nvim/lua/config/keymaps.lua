@@ -27,8 +27,8 @@ vim.keymap.set("i", "kj", "<ESC>")
 vim.keymap.set("t", "<leader>jk", "<c-\\><c-N>")
 vim.keymap.set("t", "<leader>kj", "<c-\\><c-N>")
 
-vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv")
-vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- NOTE : move line pos
 
 -- NOTE : paste without overlapping the yank buffer
