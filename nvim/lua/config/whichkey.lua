@@ -8,4 +8,19 @@ local wk = require("which-key")
 --  * <leader>fe edit file
 -- and hide <leader>1
 
-wk.register()
+wk.register({
+    ["<leader>"] = {
+        f = {
+            name = "+file",
+            f = { "<cmd>Telescope find_files<cr>", "Find File" },
+            r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+            n = { "<cmd>enew<cr>", "New File" },
+        },
+        g = {
+            name = "+Git",
+            h = {
+                name = "Help"
+            },
+        }
+    },
+})
