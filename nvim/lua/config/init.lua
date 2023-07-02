@@ -10,3 +10,8 @@ require("config.noice")
 require("config.telescope")
 
 require("config.toggleterminal")
+
+require("config.gitsigns")
+
+require("config.whichkey")
+

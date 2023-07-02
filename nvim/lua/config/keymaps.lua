@@ -58,8 +58,8 @@ local light_gold = "#EADCBA"
 -- vim.o.winbar = final_status
 
 
-vim.api.nvim_set_hl(0, "Winbar", { fg = miku_blue, bold = true })
-vim.api.nvim_set_hl(0, "LineNr", { fg = light_gold })
+-- vim.api.nvim_set_hl(0, "Winbar", { fg = miku_blue, bold = true })
+-- vim.api.nvim_set_hl(0, "LineNr", { fg = light_gold })
 vim.api.nvim_set_hl(0, '@text.note', { fg = "#f472b6" })
 
 -- split windows
