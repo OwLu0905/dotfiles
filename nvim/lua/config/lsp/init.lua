@@ -110,7 +110,11 @@ local on_attach = function(_, bufnr)
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
+    if vim.lsp.buf.format then
+      vim.lsp.buf.format()
+    elseif vim.lsp.buf.formatting then
+      vim.lsp.buf.formatting()
+    end
   end, { desc = 'Format current buffer with LSP' })
 end
 
@@ -159,15 +163,16 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- NOTE : this makes typescript synstax highlight completion (e.g. type)
-local servers_nmp = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
+-- -- NOTE : this is not work in my macbook
+-- -- NOTE : this makes typescript synstax highlight completion (e.g. type)
 
-for _, lsp in ipairs(servers_nmp ) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+-- local servers_nmp = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
+-- for _, lsp in ipairs(servers_nmp ) do
+--   require('lspconfig')[lsp].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+-- end
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -243,7 +248,7 @@ local null_sources = {
   null_ls.builtins.formatting.prettier,
   null_ls.builtins.code_actions.gitsigns,
 }
-
+--
 null_ls.setup({ sources = null_sources })
 
 -- format shortcut
