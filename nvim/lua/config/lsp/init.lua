@@ -159,6 +159,16 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+-- NOTE : this makes typescript synstax highlight completion (e.g. type)
+local servers_nmp = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
+
+for _, lsp in ipairs(servers_nmp ) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
