@@ -104,6 +104,8 @@ return {
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSUpdateSync" },
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },

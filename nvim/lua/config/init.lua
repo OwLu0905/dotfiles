@@ -15,3 +15,4 @@ require("config.gitsigns")
 
 require("config.whichkey")
 
+require("config.icon")

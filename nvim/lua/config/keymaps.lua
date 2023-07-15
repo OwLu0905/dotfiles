@@ -87,13 +87,13 @@ vim.keymap.set("n", "<leader>th", "<cmd>bfirst<CR>", { noremap = false, desc = "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- BUG :  poor tsserver is not working when jsut using these code below
+-- BUG :  poor tsserver is not working when jsut using these code below -> plugin add https://www.lazyvim.org/plugins/treesitter
 --
 -- NOTE : Format
--- vim.keymap.set("n", "<leader>fw", function()
---   vim.lsp.buf.format()
---   for _, client in ipairs(vim.lsp.get_active_clients()) do
---     print(client.name)
---   end
--- end
--- )
+vim.keymap.set("n", "<leader>fw", function()
+  vim.lsp.buf.format()
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    print(client.name)
+  end
+end
+)
