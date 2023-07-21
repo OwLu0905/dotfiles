@@ -206,6 +206,23 @@
 --   format = {}, --- @see section on formatting
 -- })
 
+-- redirect ":hi"
+-- redirect some function
+-- vim.keymap.set("c", "<S-Enter>", function()
+--   require("noice").redirect(vim.fn.getcmdline())
+-- end, { desc = "Redirect Cmdline" })
+
+vim.keymap.set("n", "<leader>nt", function()
+  require("noice").cmd("telescope")
+end, { desc = "[Noice] [T]elescope" })
+
+vim.keymap.set("n", "<leader>nh", function()
+  require("noice").cmd("history")
+end, { desc = "[Noice] [H]istory" })
+
+vim.keymap.set("n", "<leader>nd", function()
+  require("noice").cmd("dismiss")
+end, { desc = "[Noice] [D]ismiss" })
 
 -- -- in order to show recording macro
 require("lualine").setup({

@@ -129,7 +129,6 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -139,6 +138,9 @@ local servers = {
   emmet_ls = {
     filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
   },
+  -- emmet_language_server = {
+  --   filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
+  -- },
   tailwindcss = {
     tailwindCSS = {
       classAttributes = { "class", "className", "classList", "ngClass" },
@@ -181,6 +183,9 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
+  -- emmet_language_server = {
+  --   filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
+  -- },
 }
 
 mason_lspconfig.setup_handlers {
