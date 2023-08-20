@@ -27,13 +27,15 @@ vim.keymap.set("i", "kj", "<ESC>")
 vim.keymap.set("t", "<leader>jk", "<c-\\><c-N>")
 vim.keymap.set("t", "<leader>kj", "<c-\\><c-N>")
 
+-- NOTE : move line pos
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
--- NOTE : move line pos
 
 -- NOTE : paste without overlapping the yank buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
+
+vim.keymap.set("n", "<leader>noh", "<cmd>noh<CR>", { noremap = false, desc = "[N][O][H]ighlight" })
 
 -- NOTE : set winbar
 -- local light_blue = "#22d3ee"
