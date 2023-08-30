@@ -158,3 +158,5 @@ unset __conda_setup
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH=$PATH:~/go/bin
+
+eval "$(starship init zsh)"
