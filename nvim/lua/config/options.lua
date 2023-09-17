@@ -1,44 +1,45 @@
-vim.o.number = true
-vim.o.relativenumber = true
+local options = {
+    number = true,
+    relativenumber = true,
+    hlsearch = true, -- Set highlight on search
+    mouse = 'a',     -- Enable mouse mode
 
--- Set highlight on search
-vim.o.hlsearch = true
+    -- Sync clipboard between OS and Neovim.
+    --  Remove this option if you want your OS clipboard to remain independent.
+    --  See `:help 'clipboard'`
+    clipboard = 'unnamedplus',
+    breakindent = true, -- Enable break indent
+    undofile = true,    -- Save undo history
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+    -- Case-insensitive searching UNLESS \C or capital in search
+    ignorecase = true,
+    smartcase = true,
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+    -- 🧐 Decrease update time
+    updatetime = 250,
+    timeout = true,
+    timeoutlen = 300,
+    completeopt = 'menuone,noselect', -- Set completeopt to have a better completion experience
+    termguicolors = true,             -- NOTE: You should make sure your terminal supports this
 
--- Enable break indent
-vim.o.breakindent = true
+    -- NOTE : set spacing
+    tabstop = 2,
+    softtabstop = 2,
+    shiftwidth = 2,
+    showtabline = 2,
+}
 
--- Save undo history
-vim.o.undofile = true
-
--- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
-
--- 🧐 Decrease update time
-vim.o.updatetime = 250
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+local window_options = {
+    -- Keep signcolumn on by default
+    signcolumn = 'yes'
+}
 
 
--- NOTE : set spacing
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.showtabline = 2
+
+for option, value in pairs(options) do
+    vim.opt[option] = value
+end
+
+for option, value in pairs(window_options) do
+    vim.wo[option] = value
+end
