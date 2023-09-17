@@ -57,7 +57,8 @@ dashboard.section.buttons.val = {
 -- dashboard.section.footer.val = fortune()
 
 local function footer()
-    return "Fear is Mind Killer..."
+    -- return "Fear is Mind Killer..."
+    return "Working hard is the greatest talent you can have"
 end
 
 dashboard.section.footer.val = footer()
