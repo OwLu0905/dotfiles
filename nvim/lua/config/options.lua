@@ -26,7 +26,7 @@ local options = {
     tabstop = 2,
     softtabstop = 2,
     shiftwidth = 2,
-    showtabline = 2,
+    -- showtabline = 2, // TODO: the tab above winbar
 }
 
 local window_options = {

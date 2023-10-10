@@ -99,3 +99,6 @@ vim.keymap.set("n", "<leader>fw", function()
   end
 end
 )
+
+
+vim.api.nvim_set_keymap('n', '<leader>-', ':normal! V%<CR>:fold<CR>', { noremap = true, silent = true })
