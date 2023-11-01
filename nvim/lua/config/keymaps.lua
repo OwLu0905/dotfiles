@@ -78,10 +78,10 @@ vim.keymap.set("n", "<leader>vl", vim.cmd['vsplit'], { desc = 'Vertical split' }
 
 -- TODO : add tab relative work
 -- NOTE : move between buffers
-vim.keymap.set("n", "<leader>tj", vim.cmd['bnext'], { desc = "[T]o next[j]" })
-vim.keymap.set("n", "<leader>tk", vim.cmd['bprev'], { desc = "[T]o prev[k]" })
-vim.keymap.set("n", "<leader>tl", "<cmd>blast<CR>", { noremap = false, desc = "[T]o last[L]" })
-vim.keymap.set("n", "<leader>th", "<cmd>bfirst<CR>", { noremap = false, desc = "[T]o first[H]" })
+-- vim.keymap.set("n", "<leader>tj", vim.cmd['bnext'], { desc = "[T]o next[j]" })
+-- vim.keymap.set("n", "<leader>tk", vim.cmd['bprev'], { desc = "[T]o prev[k]" })
+-- vim.keymap.set("n", "<leader>tl", "<cmd>blast<CR>", { noremap = false, desc = "[T]o last[L]" })
+-- vim.keymap.set("n", "<leader>th", "<cmd>bfirst<CR>", { noremap = false, desc = "[T]o first[H]" })
 
 
 -- NOTE : nvim_tree (https://github.com/nvim-tree/nvim-tree.lua)

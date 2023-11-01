@@ -17,3 +17,4 @@ require("config.whichkey")
 
 require("config.icon")
 require("config.undo")
+require("config.bufferline")
