@@ -98,7 +98,7 @@ format = '[[$symbol ($version) ](fg:#769ff0)]($style)'
 
 [time]
 disabled = false
-time_format = "%A %T" # Monday Hour:Minute Format
+time_format = "%A %T"                        # Monday Hour:Minute Format
 format = '[[  $time ](fg:#a0a9cb)]($style)'
 
 [sudo]

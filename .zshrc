@@ -132,6 +132,8 @@ alias RSenv="conda activate RSenv"
 # alias new WEB folder 
 alias newWeb="cd ./Desktop/newWeb"
 
+alias LC="cd ./Desktop/Golang/LC/"
+
 # alias neo-vimrc
 alias nvimrc="cd ~/.config/nvim && echo "show_list" && ls -a"
 
@@ -160,3 +162,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:~/go/bin
 
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

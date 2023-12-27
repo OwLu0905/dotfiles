@@ -27,11 +27,13 @@ local options = {
     softtabstop = 2,
     shiftwidth = 2,
     -- showtabline = 2, // TODO: the tab above winbar
+    --
 }
 
 local window_options = {
     -- Keep signcolumn on by default
-    signcolumn = 'yes'
+    signcolumn = 'yes',
+    colorcolumn = '120',
 }
 
 

@@ -26,6 +26,7 @@ vim.keymap.set("i", "kj", "<ESC>")
 -- NOTE : terminal node
 vim.keymap.set("t", "<leader>jk", "<c-\\><c-N>")
 vim.keymap.set("t", "<leader>kj", "<c-\\><c-N>")
+vim.keymap.set("t", "<C-x>", "<c-\\><c-N>")
 
 -- NOTE : move line pos
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
