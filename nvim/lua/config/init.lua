@@ -19,3 +19,5 @@ require("config.icon")
 require("config.undo")
 require("config.bufferline")
 require("config.harpoon")
+
+require("config.trouble")
