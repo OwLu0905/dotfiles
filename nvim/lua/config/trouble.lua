@@ -12,5 +12,6 @@ telescope.setup {
     },
 }
 
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "[X][X]Toggle Trouble" })
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end,
+    { desc = "[X][D]ocument" })

@@ -1,6 +1,7 @@
 require('toggleterm').setup({
   size = 16,
   open_mapping = [[<c-\>]],
+  direction = "float",
   winbar = {
     enabled = true,
     name_formatter = function(term) --  term: Terminal
@@ -36,6 +37,6 @@ vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>",
   { noremap = true, silent = true, desc = "[L][G] toggle float lazygit" })
 
 
-vim.api.nvim_set_keymap("n", "<leader>vt", "<cmd>ToggleTerm size=60 direction=vertical<CR>", {})
-vim.api.nvim_set_keymap("n", "<leader>ht", "<cmd>ToggleTerm size=20 direction=horizontal<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>vv", "<cmd>ToggleTerm size=60 direction=vertical<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>ToggleTerm size=20 direction=horizontal<CR>", {})
 vim.api.nvim_set_keymap("t", "<C-x>", "<cmd>ToggleTerm <CR>", {})

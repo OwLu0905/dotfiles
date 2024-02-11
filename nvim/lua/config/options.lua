@@ -28,6 +28,8 @@ local options = {
     shiftwidth = 2,
     -- showtabline = 2, // TODO: the tab above winbar
     --
+    listchars = { eol = '↵' },
+    list = true
 }
 
 local window_options = {
