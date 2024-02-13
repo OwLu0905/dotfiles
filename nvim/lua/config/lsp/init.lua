@@ -71,7 +71,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -124,10 +124,14 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  clangd = {},
-  -- gopls = {},
   pyright = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    cargo = {
+      buildScripts = {
+        enable = true,
+      },
+    },
+  },
   tsserver = {},
   lua_ls = {
     Lua = {
@@ -138,9 +142,6 @@ local servers = {
   emmet_ls = {
     filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
   },
-  -- emmet_language_server = {
-  --   filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
-  -- },
   tailwindcss = {
     tailwindCSS = {
       classAttributes = { "class", "className", "classList", "ngClass" },
@@ -170,7 +171,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- BUG : this works occasionally
 
-local servers_nmp = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
+local servers_nmp = { 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls' }
 for _, lsp in ipairs(servers_nmp) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -183,13 +184,19 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
-  -- emmet_language_server = {
-  --   filetypes = { 'html', 'css', 'ejs', 'pug', 'handlebars', 'typescript', 'typescriptreact', 'javascriptreact', 'svelte' }
-  -- },
 }
 
 mason_lspconfig.setup_handlers {
   function(server_name)
+    if server_name == 'clangd' then
+      require('lspconfig').clangd.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { "cpp", "c", "cuda" }
+      }
+
+      do return end
+    end
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
