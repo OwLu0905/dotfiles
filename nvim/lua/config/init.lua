@@ -21,3 +21,5 @@ require("config.bufferline")
 require("config.harpoon")
 
 require("config.trouble")
+require("config.syntax")
+require("config.indent")
