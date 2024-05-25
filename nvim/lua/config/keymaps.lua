@@ -37,6 +37,7 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 
 vim.keymap.set("n", "<leader>noh", "<cmd>noh<CR>", { noremap = false, desc = "[N][O][H]ighlight" })
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>", { noremap = false, desc = "[N][O][H]ighlight" })
 
 -- NOTE : set winbar
 -- local light_blue = "#22d3ee"
