@@ -1,6 +1,6 @@
 require("nvim-tree").setup({
   view = {
-    side = 'left'
+    side = 'right'
   },
   sort_by = "case_sensitive",
   renderer = {

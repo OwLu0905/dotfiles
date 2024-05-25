@@ -44,15 +44,20 @@ return {
       })
     end,
   },
-  { "EdenEast/nightfox.nvim" },
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      vim.cmd([[colorscheme  nordfox]])
+    end
+  },
   { 'olivercederborg/poimandres.nvim' },
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = function()
-      -- require("catppuccin").setup({ flavour = "frappe", transparent_background = false })
-      vim.cmd([[colorscheme  catppuccin]])
+      -- require("catppuccin").setup({ flavour = "frappe", transparent_background = true })
+      -- vim.cmd([[colorscheme  catppuccin]])
     end
   },
   {
@@ -60,7 +65,15 @@ return {
     name = 'rose-pine',
 
     config = function()
-      -- require("catppuccin").setup({ flavour = "frappe" })
+      require("rose-pine").setup({
+        variant = "moon",
+        styles = {
+          bold = true,
+          italic = false,
+          transparency = true,
+        },
+      })
+
       -- vim.cmd([[colorscheme  rose-pine]])
     end
   },

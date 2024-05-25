@@ -19,8 +19,8 @@ vim.keymap.set('v', '<leader>ghr', function() gs.reset_hunk { vim.fn.line('.'), 
   { desc = "reset_hunk" })
 vim.keymap.set('n', '<leader>ghS', gs.stage_buffer, { desc = "stage_buffer" })
 
--- NOTE : view  
-vim.keymap.set("n", "<leader>ghp", gs.preview_hunk, { desc = "[P]review Hunk" })
+-- NOTE : view
+vim.keymap.set("n", "<leader>gP", gs.preview_hunk, { desc = "[G]it [P]review Hunk" })
 
 vim.keymap.set('n', '<leader>ghb', function() gs.blame_line { full = true } end, { desc = "blame_line" })
 vim.keymap.set('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = "toggle_current_line_blame" })

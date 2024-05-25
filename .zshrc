@@ -126,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias owlpic="open ./Documents/~pic/"
 # alias toeic folder
-alias toeicFile="open ./Documents/toeic/" 
+alias toeic="open ./Documents/toeic/" 
 # alias python=/opt/homebrew/bin/python3
 alias RSenv="conda activate RSenv"
 # alias new WEB folder 
@@ -163,3 +163,6 @@ export PATH=$PATH:~/go/bin
 
 eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# bun completions
+[ -s "/Users/OwLu/.bun/_bun" ] && source "/Users/OwLu/.bun/_bun"
