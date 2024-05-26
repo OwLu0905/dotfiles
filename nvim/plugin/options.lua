@@ -24,4 +24,7 @@ opt.formatoptions:remove "o"
 ----- Personal Preferences (myself) -----
 
 opt.mouse = "a"
-
+opt.list = true
+opt.listchars = { eol = "↵" }
+opt.tabstop = 2
+opt.softtabstop = 2

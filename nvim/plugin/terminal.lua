@@ -26,4 +26,3 @@ end)
 vim.keymap.set("t", "<leader>jk", "<c-\\><c-N>")
 vim.keymap.set("t", "<leader>kj", "<c-\\><c-N>")
 vim.keymap.set("t", "<C-x>", "<c-\\><c-N>")
-

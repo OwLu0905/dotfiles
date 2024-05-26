@@ -19,6 +19,7 @@
   "flexoki-neovim": { "branch": "main", "commit": "975654bce67514114db89373539621cff42befb5" },
   "fluoromachine.nvim": { "branch": "main", "commit": "b80436877e77d21e4c68f53840dc36621d6a5515" },
   "fzf": { "branch": "master", "commit": "daa602422dc272cbec6b99bc7520262672ad7230" },
+  "gitsigns.nvim": { "branch": "main", "commit": "cdfcd9d39d23c46ae9a040de2c6a8b8bf868746e" },
   "gruvbox-minor.nvim": { "branch": "main", "commit": "981bd885ab369fdafc8a38a16b2d8cc47a7f1529" },
   "hotdog.vim": { "branch": "master", "commit": "3b3b271e27a138a9f6d4130ee55e429ccaf78f35" },
   "iceberg.vim": { "branch": "master", "commit": "e01ac08c2202e7544531f4d806f6893539da6471" },
