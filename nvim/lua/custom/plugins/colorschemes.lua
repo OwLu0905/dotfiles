@@ -7,6 +7,7 @@ return {
     dir = "~/plugins/colorbuddy.nvim",
     config = function()
       vim.cmd.colorscheme "everforest"
+      -- vim.cmd.colorscheme "everforest"
     end,
   },
   "rktjmp/lush.nvim",

@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "878ace11983444d865a72e1759dbcc331d1ace4c" },
   "MountainDew.vim": { "branch": "master", "commit": "5355c0411f83315698de13e7ffa7d2b530f01900" },
   "SchemaStore.nvim": { "branch": "main", "commit": "9a5992a881583d886bfbb46631a09f736f0fae50" },

@@ -19,7 +19,7 @@ opt.shada = { "'10", "<0", "s10", "h" }
 opt.clipboard = "unnamedplus"
 
 -- Don't have `o` add a comment
-opt.formatoptions:remove "o"
+-- opt.formatoptions:remove "o"
 
 ----- Personal Preferences (myself) -----
 
@@ -28,3 +28,13 @@ opt.mouse = "a"
 -- opt.listchars = { eol = "↵" }
 opt.tabstop = 2
 opt.softtabstop = 2
+
+-- Don't have `o` add a comment
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("FormatOptions", { clear = true }),
+  pattern = { "*" },
+  callback = function()
+    vim.opt_local.fo:remove "o"
+    vim.opt_local.fo:remove "r"
+  end,
+})
