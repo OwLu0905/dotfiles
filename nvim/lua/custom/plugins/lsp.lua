@@ -114,7 +114,7 @@ return {
         "stylua",
         "lua_ls",
         "delve",
-        "tailwind-language-srver",
+        "tailwindcss-language-server",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
