@@ -138,6 +138,9 @@ alias LC="cd ./Desktop/Golang/LC/"
 alias nvimrc="cd ~/.config/nvim && echo "show_list" && ls -a"
 
 alias obsd="cd ~/Documents/Obsidian\ Vault/"
+
+alias xcode="open -a Xcode"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

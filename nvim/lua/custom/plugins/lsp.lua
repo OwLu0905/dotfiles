@@ -90,13 +90,6 @@ return {
             "ocaml.menhir",
             "ocaml.cram",
           },
-
-          -- TODO: Check if i still need the filtypes stuff i had before
-        },
-
-        lexical = {
-          cmd = { "/home/tjdevries/.local/share/nvim/mason/bin/lexical", "server" },
-          root_dir = require("lspconfig.util").root_pattern { "mix.exs" },
         },
 
         clangd = {
@@ -121,7 +114,7 @@ return {
         "stylua",
         "lua_ls",
         "delve",
-        -- "tailwind-language-server",
+        "tailwind-language-srver",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
