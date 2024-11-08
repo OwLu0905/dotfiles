@@ -27,6 +27,7 @@ opt.mouse = "a"
 -- opt.list = true
 -- opt.listchars = { eol = "↵" }
 opt.tabstop = 2
+opt.shiftwidth = 2
 opt.softtabstop = 2
 
 -- Don't have `o` add a comment

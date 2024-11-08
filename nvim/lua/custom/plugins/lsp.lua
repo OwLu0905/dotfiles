@@ -29,6 +29,7 @@ return {
       end
 
       local lspconfig = require "lspconfig"
+      local util = require "lspconfig.util"
 
       local servers = {
         bashls = true,
@@ -51,10 +52,10 @@ return {
         rust_analyzer = true,
         svelte = true,
         templ = true,
-        cssls = true,
 
         -- Probably want to disable formatting for this lang server
         tsserver = true,
+        astro = true,
 
         jsonls = {
           settings = {
@@ -98,6 +99,16 @@ return {
           init_options = { clangdFileStatus = true },
           filetypes = { "c" },
         },
+
+        emmet_language_server = {
+          filetypes = { "astro", "html" },
+        },
+        tailwindcss = {},
+        mdx_analyzer = {
+          cmd = { "mdx-language-server", "--stdio" },
+          filetypes = { "markdown.mdx" },
+          root_dir = util.root_pattern "package.json",
+        },
       }
 
       local servers_to_install = vim.tbl_filter(function(key)
@@ -115,6 +126,7 @@ return {
         "lua_ls",
         "delve",
         "tailwindcss-language-server",
+        "tailwindcss",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
@@ -161,7 +173,16 @@ return {
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
+          astro = { "prettierd", "prettier" },
         },
+      }
+
+      local capabilities_astro = vim.lsp.protocol.make_client_capabilities()
+      capabilities_astro.textDocument.completion.completionItem.snippetSupport = true
+
+      require("lspconfig").cssls.setup {
+        capabilities = capabilities_astro,
+        filetypes = { "astro", "css" },
       }
 
       vim.api.nvim_create_autocmd("BufWritePre", {

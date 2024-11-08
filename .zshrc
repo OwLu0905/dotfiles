@@ -141,6 +141,8 @@ alias obsd="cd ~/Documents/Obsidian\ Vault/"
 
 alias xcode="open -a Xcode"
 
+alias ank="cd ~/Library/Application\ Support/Anki2"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

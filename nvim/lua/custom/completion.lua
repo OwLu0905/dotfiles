@@ -8,6 +8,10 @@ lspkind.init {}
 
 local cmp = require "cmp"
 
+cmp.config.formatting = {
+  format = require("tailwindcss-colorizer-cmp").formatter,
+}
+
 cmp.setup {
   sources = {
     { name = "nvim_lsp" },
