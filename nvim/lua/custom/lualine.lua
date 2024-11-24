@@ -1,3 +1,4 @@
+local function get_venv_name() end
 require("lualine").setup {
   -- sections = { lualine_c = { "os.date('%a')", "data", "require'lsp-status'.status()" } },
   sections = {
@@ -6,6 +7,14 @@ require("lualine").setup {
         "filename",
         file_status = true, -- displays file status (readonly status, modified status)
         path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+      },
+      {
+        "swenv",
+        icon = "(venv)🐍🐍🐍",
+
+        cond = function()
+          return vim.bo.filetype == "python"
+        end,
       },
     },
   },

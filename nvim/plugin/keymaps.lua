@@ -20,6 +20,8 @@ set("n", "[d", vim.diagnostic.goto_prev)
 -- These mappings control the size of splits (height/width)
 set("n", "<M-,>", "<c-w>5<")
 set("n", "<M-.>", "<c-w>5>")
+set("n", "<M-n>", "<c-w>5+")
+set("n", "<M-m>", "<c-w>5-")
 
 set("n", "<leader>sl", vim.cmd["split"], { desc = "Horizontal split" })
 set("n", "<leader>vl", vim.cmd["vsplit"], { desc = "Vertical split" })
