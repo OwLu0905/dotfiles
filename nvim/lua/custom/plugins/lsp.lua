@@ -109,6 +109,7 @@ return {
           filetypes = { "markdown.mdx" },
           root_dir = util.root_pattern "package.json",
         },
+        biome = {},
       }
 
       local servers_to_install = vim.tbl_filter(function(key)
@@ -126,7 +127,7 @@ return {
         "lua_ls",
         "delve",
         "tailwindcss-language-server",
-        "tailwindcss",
+        -- "tailwindcss",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
@@ -166,14 +167,28 @@ return {
           if disable_semantic_tokens[filetype] then
             client.server_capabilities.semanticTokensProvider = nil
           end
+
+          -- Create a command `:Format` local to the LSP buffer
+          vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+            if vim.lsp.buf.format then
+              vim.lsp.buf.format()
+            elseif vim.lsp.buf.formatting then
+              vim.lsp.buf.formatting()
+            end
+          end, { desc = "Format current buffer with LSP" })
         end,
       })
 
       -- Autoformatting Setup
+      -- ISSUE: web dev: https://github.com/stevearc/conform.nvim/issues/291#issuecomment-2004022974
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
-          astro = { "prettierd", "prettier" },
+          astro = { "biome", "prettier" },
+          typescript = { { "prettierd", "prettier" }, "biome" },
+          typescriptreact = { { "prettierd", "prettier" }, "biome" },
+          javascript = { { "prettierd", "prettier" }, "biome" },
+          javascriptreact = { { "prettierd", "prettier" }, "biome" },
         },
       }
 
@@ -186,6 +201,7 @@ return {
       }
 
       vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
         callback = function(args)
           require("conform").format {
             bufnr = args.buf,
