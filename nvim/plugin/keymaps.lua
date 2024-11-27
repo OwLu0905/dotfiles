@@ -16,6 +16,15 @@ set("n", "<Esc>", "<cmd>noh<CR>", { noremap = false, desc = "[N][O][H]ighlight" 
 -- the float when I navigate to the error - so I override them.
 set("n", "]d", vim.diagnostic.goto_next)
 set("n", "[d", vim.diagnostic.goto_prev)
+set("n", "U", function()
+  vim.diagnostic.open_float {
+    scope = "cursor",
+    format = function(diagnostic)
+      print(diagnostic.source)
+      return diagnostic and diagnostic.message or "No errors found"
+    end,
+  }
+end)
 
 -- These mappings control the size of splits (height/width)
 set("n", "<M-,>", "<c-w>5<")

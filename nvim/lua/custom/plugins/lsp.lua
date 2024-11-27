@@ -17,6 +17,7 @@ return {
     },
     config = function()
       require("neodev").setup {
+        -- TODO: ref: lazydev.nvim
         -- library = {
         --   plugins = { "nvim-dap-ui" },
         --   types = true,

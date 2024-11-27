@@ -28,6 +28,11 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep)
 vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
 
 vim.keymap.set("n", "<leader>gw", builtin.grep_string)
+vim.keymap.set("n", "<leader>cc", function()
+  builtin.colorscheme {
+    enable_preview = true,
+  }
+end)
 
 -- vim.keymap.set("n", "<leader>fa", function()
 --   ---@diagnostic disable-next-line: param-type-mismatch
