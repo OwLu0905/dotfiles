@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "saghen/blink.cmp",
       "folke/neodev.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -24,10 +25,7 @@ return {
         -- },
       }
 
-      local capabilities = nil
-      if pcall(require, "cmp_nvim_lsp") then
-        capabilities = require("cmp_nvim_lsp").default_capabilities()
-      end
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local lspconfig = require "lspconfig"
       local util = require "lspconfig.util"
@@ -128,7 +126,6 @@ return {
         "lua_ls",
         "delve",
         "tailwindcss-language-server",
-        -- "tailwindcss",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
