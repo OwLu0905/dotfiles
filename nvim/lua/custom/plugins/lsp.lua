@@ -187,6 +187,7 @@ return {
           typescriptreact = { { "prettierd", "prettier" }, "biome" },
           javascript = { { "prettierd", "prettier" }, "biome" },
           javascriptreact = { { "prettierd", "prettier" }, "biome" },
+          toml = { { "prettierd", "prettier" }, "taplo" },
         },
       }
 
