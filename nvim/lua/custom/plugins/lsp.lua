@@ -32,21 +32,21 @@ return {
 
       local servers = {
         bashls = true,
-        gopls = {
-          settings = {
-            gopls = {
-              hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-              },
-            },
-          },
-        },
+        -- gopls = {
+        --   settings = {
+        --     gopls = {
+        --       hints = {
+        --         assignVariableTypes = true,
+        --         compositeLiteralFields = true,
+        --         compositeLiteralTypes = true,
+        --         constantValues = true,
+        --         functionTypeParameters = true,
+        --         parameterNames = true,
+        --         rangeVariableTypes = true,
+        --       },
+        --     },
+        --   },
+        -- },
         lua_ls = true,
         rust_analyzer = true,
         svelte = true,
@@ -124,7 +124,6 @@ return {
       local ensure_installed = {
         "stylua",
         "lua_ls",
-        "delve",
         "tailwindcss-language-server",
       }
 
