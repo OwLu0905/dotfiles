@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "saghen/blink.cmp",
+      -- "saghen/blink.cmp",
       "folke/neodev.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -14,7 +14,7 @@ return {
       "stevearc/conform.nvim",
 
       -- Schema information
-      "b0o/SchemaStore.nvim",
+      "b0o/schemastore.nvim",
     },
     config = function()
       require("neodev").setup {
@@ -25,9 +25,10 @@ return {
         -- },
       }
 
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local lspconfig = require "lspconfig"
+
       local util = require "lspconfig.util"
 
       local servers = {
